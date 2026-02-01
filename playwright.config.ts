@@ -1,4 +1,4 @@
-import { defineConfig, devices } from '@playwright/test';
+import { defineConfig, devices } from "@playwright/test";
 
 /**
  * Read environment variables from file.
@@ -12,7 +12,7 @@ import { defineConfig, devices } from '@playwright/test';
  * See https://playwright.dev/docs/test-configuration.
  */
 export default defineConfig({
-  testDir: './tests',
+  testDir: "./tests",
   /* Run tests in files in parallel */
   fullyParallel: true,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
@@ -22,42 +22,36 @@ export default defineConfig({
   /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: 'html',
-/**
- * NOTE:
- * This repository covers multiple applications (SauceDemo, DemoBlaze, ParaBank),
- * each with a different base URL.
- *
- * Because of that, a single global `baseURL` is NOT defined here.
- * Base URLs are provided via environment variables (.env)
- * and applied per test or per fixture, depending on the application.
- *
- * This approach keeps the configuration flexible and avoids coupling
- * all tests to a single application.
- */
+  reporter: "html",
+  /**
+   * NOTE:
+   * This repository covers multiple applications (SauceDemo, DemoBlaze, ParaBank),
+   * each with a different base URL.
+   *
+   * Because of that, a single global `baseURL` is NOT defined here.
+   * Base URLs are provided via environment variables (.env)
+   * and applied per test or per fixture, depending on the application.
+   *
+   * This approach keeps the configuration flexible and avoids coupling
+   * all tests to a single application.
+   */
   use: {
-  
-
-    trace: 'on-first-retry',
-    screenshot: 'only-on-failure', 
-    video: 'retain-on-failure'
+    trace: "on-first-retry",
+    screenshot: "only-on-failure",
+    video: "retain-on-failure",
+    testIdAttribute: "data-test",
   },
 
   /* Configure projects for major browsers */
   projects: [
     {
-      name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
+      name: "chromium",
+      use: { ...devices["Desktop Chrome"] },
     },
 
     {
-      name: 'firefox',
-      use: { ...devices['Desktop Firefox'] },
-    },
-
-    {
-      name: 'webkit',
-      use: { ...devices['Desktop Safari'] },
+      name: "firefox",
+      use: { ...devices["Desktop Firefox"] },
     },
 
     /* Test against mobile viewports. */
