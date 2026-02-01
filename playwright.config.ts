@@ -23,13 +23,24 @@ export default defineConfig({
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: 'html',
-  /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
+/**
+ * NOTE:
+ * This repository covers multiple applications (SauceDemo, DemoBlaze, ParaBank),
+ * each with a different base URL.
+ *
+ * Because of that, a single global `baseURL` is NOT defined here.
+ * Base URLs are provided via environment variables (.env)
+ * and applied per test or per fixture, depending on the application.
+ *
+ * This approach keeps the configuration flexible and avoids coupling
+ * all tests to a single application.
+ */
   use: {
-    /* Base URL to use in actions like `await page.goto('')`. */
-    // baseURL: 'http://localhost:3000',
+  
 
-    /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
+    screenshot: 'only-on-failure', 
+    video: 'retain-on-failure'
   },
 
   /* Configure projects for major browsers */
