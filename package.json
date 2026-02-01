@@ -1,0 +1,23 @@
+{
+  "name": "playwright-multi-app-tests",
+  "version": "1.0.0",
+  "description": "Multi‑application Playwright test suite demonstrating advanced automation techniques, Page Object Model, CI/CD, API testing and reusable components.",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AnnaPawlowskaa/playwright-multi-app-tests.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/AnnaPawlowskaa/playwright-multi-app-tests/issues"
+  },
+  "homepage": "https://github.com/AnnaPawlowskaa/playwright-multi-app-tests#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.58.1",
+    "@types/node": "^25.1.0"
+  }
+}
