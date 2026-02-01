@@ -25,3 +25,12 @@ jobs:
         name: playwright-report
         path: playwright-report/
         retention-days: 30
+        - name: Run Playwright tests
+  run: npx playwright test
+  env:
+    SAUCEDEMO_BASE_URL: https://www.saucedemo.com/
+    SAUCEDEMO_USER: standard_user
+    SAUCEDEMO_PASSWORD: secret_sauce
+    DEMOBLAZE_BASE_URL: https://www.demoblaze.com/
+    PARABANK_BASE_URL: https://parabank.parasoft.com/
+
