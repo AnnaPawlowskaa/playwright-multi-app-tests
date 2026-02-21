@@ -1,4 +1,5 @@
 import { Page, expect, Locator } from "@playwright/test";
+import { Product } from "../../utils/saucedemo/data";
 
 export class InventoryPage {
   pageTitle: Locator;
@@ -24,8 +25,8 @@ export class InventoryPage {
     await this.logoutLink.click();
   }
 
-  async addProductToCart(productTestId: string): Promise<void> {
-    await this.page.getByTestId(productTestId).click();
+  async addProductToCart(product: Product): Promise<void> {
+    await this.page.getByTestId(product).click();
   }
 
   async goToCart(): Promise<void> {
